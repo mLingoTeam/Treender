@@ -1,0 +1,6 @@
+.gradient {
+  background: linear-gradient(#6fc3a0, #ff8089);
+  width: 100%;
+  height: 1000px;
+  object-fit: cover;
+}
