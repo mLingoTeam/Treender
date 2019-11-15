@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Treender.Controllers;
 using Treender.Data;
 
 
@@ -34,6 +35,8 @@ namespace Treender
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddLogging();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,7 +61,7 @@ namespace Treender
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action}");
             });
 
             app.UseSpa(spa =>

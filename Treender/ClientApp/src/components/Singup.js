@@ -18,7 +18,7 @@ class Singup extends Component {
   };
 
   sendUsername = () => {
-    fetch("localhost/Login", {
+    fetch("/Login", {
       method: "POST",
       headers: {
         Accept: "text/html",
