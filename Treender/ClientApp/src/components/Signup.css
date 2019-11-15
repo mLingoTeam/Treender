@@ -1,6 +1,50 @@
 .gradient {
-  background: linear-gradient(#6fc3a0, #ff8089);
+  background: linear-gradient(#ff8089, #fe3c72);
   width: 100%;
-  height: 1000px;
+  height: 90vh;
   object-fit: cover;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.username-form {
+  padding: 20px 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.username-form p {
+  margin: 0 0 10px 0 !important;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.username-form input[type="text"] {
+  outline: none;
+  height: 30px;
+  border-radius: 7px;
+  border: 0px;
+}
+
+.btn-tinder {
+  background: #ff8089;
+  border: 0;
+  color: #fe3c72;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.btn-tinder:focus .btn-tinder:hover {
+  background: #eee;
+  color: #ff8089;
+  outline: none !important;
+  border: 0 !important;
 }
