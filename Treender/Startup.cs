@@ -22,7 +22,7 @@ namespace Treender
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<AppDatabaseContex>(options =>
+            services.AddDbContext<AppDatabaseContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("some_connection_str"));
             });
