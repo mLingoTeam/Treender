@@ -4,6 +4,7 @@
   word-break: break-all;
   font-size: 32px !important;
   font-family: "Acme", sans-serif;
+  font-weight: 200;
 }
 .navbar {
   vertical-align: middle;
