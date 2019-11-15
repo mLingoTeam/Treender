@@ -3,6 +3,31 @@ import "./Signup.css";
 import whitetree from "../img/Icon white.png";
 
 class Singup extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      username: "Mieczkowski_69"
+    };
+  }
+
+  newUsername = e => {
+    this.setState({
+      username: e.target.value
+    });
+  };
+
+  sendUsername = () => {
+    fetch("localhost/Login", {
+      method: "POST",
+      headers: {
+        Accept: "text/html",
+        "Content-Type": "text/html"
+      },
+      body: this.state.username
+    });
+  };
+
   render() {
     return (
       <div className="gradient col-12">
@@ -15,9 +40,18 @@ class Singup extends Component {
         <form className="username-form col-md-6">
           <label for="nickname" className="col-12">
             <p>Username</p>
-            <input type="text" name="nickname" class="offset-3 col-6" />
+            <input
+              type="text"
+              name="nickname"
+              onChange={this.newUsername}
+              class="offset-3 col-6"
+            />
           </label>
-          <button type="button" className="btn btn-tinder">
+          <button
+            type="button"
+            className="btn btn-tinder"
+            onClick={this.sendUsername}
+          >
             Search your tree!
           </button>
         </form>
