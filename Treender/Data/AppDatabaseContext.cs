@@ -18,12 +18,14 @@ namespace Treender.Data
 
         public DbSet<TreeSpecie> TreeSpecies { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         #endregion
         /// <summary>
         /// Default constructor that configures database context
         /// </summary>
         /// <param name="options">Options passed to db context</param>
-        public AppDatabaseContext(DbContextOptions<AppDatabaseContext> options)
+        public AppDatabaseContext(DbContextOptions<AppDatabaseContext> options) : base(options)
         {
             
         }

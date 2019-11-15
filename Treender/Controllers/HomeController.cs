@@ -1,9 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Logging;
 using Treender.Data;
+using Treender.Data.DbModels;
 
 namespace Treender.Controllers
 {
@@ -20,15 +23,8 @@ namespace Treender.Controllers
 
         [HttpPost]
         [Route("/Login")]
-        public async Task<bool> LoginAsync()
+        public async Task LoginAsync()
         {
-            using (var reader = new StreamReader(Request.Body))
-            {
-                var body = await reader.ReadToEndAsync();
-                _logger.LogInformation(body);
-            }
-
-            return false;
         }
     }
 }
