@@ -24,7 +24,7 @@ namespace Treender
 
             services.AddDbContext<AppDatabaseContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("some_connection_str"));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddControllersWithViews();
