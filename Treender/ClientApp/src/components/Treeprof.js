@@ -1,4 +1,8 @@
 import React from "react";
+import real2 from "../img/Real.png";
+import fake2 from "../img/Fake.png";
+import type2 from "../img/Type.png";
+import height2 from "../img/height.png";
 
 import mock3 from "../img/Trees/tree11.jpg";
 
@@ -29,10 +33,19 @@ function Treeprof(props) {
             className="img-fluid position-relative treeprofphoto"
           />
           <div className="treedata">
-            <p>{props.tree.Name}</p>
-            <p>{height + " cm"}</p>
-            <p>{type}</p>
-            <p>{specie}</p>
+            <h5>{props.tree.Name}</h5>
+            <div className="d-flex">
+              <img src={height2} className="tree-icon" />
+              <p>{height + " cm"}</p>
+            </div>
+            <div className="d-flex">
+              <img src={real2} className="tree-icon" />
+              <p>{type}</p>
+            </div>
+            <div className="d-flex">
+              <img src={type2} className="tree-icon" />
+              <p>{specie}</p>
+            </div>
           </div>
         </div>
       </div>

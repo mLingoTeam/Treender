@@ -34,11 +34,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20% 10% 0;
+  padding: 20 % 5% 0;
   text-shadow: 0.1em 0.2em 0.2em black;
   color: #eaeaea;
   font-weight: 600;
   border-radius: 0 0 25px 25px;
+  line-height: 0.6em;
 }
 
 .iconShow {
@@ -82,4 +83,14 @@
 .endoftrees img {
   max-width: 60%;
   max-height: 60%;
+}
+
+.treedata div {
+  vertical-align: middle;
+}
+
+.tree-icon {
+  max-width: 18px;
+  max-height: 18px;
+  margin: 0 5px;
 }
