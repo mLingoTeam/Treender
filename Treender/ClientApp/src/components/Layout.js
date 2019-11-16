@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Logo from "./Logo";
+import Signup from "./Singup";
 
 export class Layout extends Component {
   render() {
     return (
       <div>
-        <Logo />
+        <Signup />
       </div>
     );
   }
