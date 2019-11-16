@@ -61,7 +61,7 @@ namespace Treender
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action}");
+                    pattern: "{controller}/{action}");
             });
 
             app.UseSpa(spa =>
