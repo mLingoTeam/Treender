@@ -25,7 +25,7 @@ namespace Treender.Controllers
 
         [HttpGet]
         [Route("/GetUserTrees")]
-        public async Task<IActionResult> GetTreeSet()
+        public IActionResult GetTreeSet()
         {
             var username = Request.Headers["name"];
             var preferences = (from user in _dbContext.Users where user.Username.Equals(username) select user.PreferencesFk).FirstOrDefault();
@@ -38,15 +38,30 @@ namespace Treender.Controllers
 
             var jsonTrees = JsonConvert.SerializeObject(trees);
 
-            return StatusCode(200, jsonTrees);
+            return Ok(jsonTrees);
         }
 
         [HttpPost]
         [Route("/Like")]
         public async Task<IActionResult> Like()
         {
+            var username = Request.Headers["name"];
+            string body;
+            using (var reader = new StreamReader(Request.Body))
+                body = await reader.ReadToEndAsync();
 
+            if (body == null) return NoContent();
 
+            var user = (from u in _dbContext.Users where u.Username == username select u).FirstOrDefault();
+
+            _dbContext.Likes.Add(new Like
+            {
+                Uid = new Guid(),
+                UserId = user.Uid,
+                TreeId = Guid.Parse(body)
+            });
+
+            _dbContext.SaveChanges();
             return Ok();
         }
     }

@@ -22,6 +22,8 @@ namespace Treender.Data
 
         public DbSet<Preference> Preferences { get; set; }
 
+        public DbSet<Like> Likes { get; set; }
+
         #endregion
 
         /// <summary>
