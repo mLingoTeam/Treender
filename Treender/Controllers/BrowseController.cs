@@ -22,21 +22,21 @@ namespace Treender.Controllers
 
         [HttpGet]
         [Route("/GetUserTrees")]
-        public async Task<IActionResult> GetTreeSet()
+        public async Task<JsonResult> GetTreeSet()
         {
             List<Tree> trees;
             using (var reader = new StreamReader(Request.Body))
             {
                 var username = await reader.ReadToEndAsync();
                 var preferences = _dbContext.Users.FirstOrDefault(u => u.Username == username)?.PreferencesFk;
-                if (preferences == null) return NotFound();
+                if (preferences == null) return Json("{fail: \"no_such_user\"}");
 
                 trees = _dbContext.Trees.Where(tree => (tree.Height >= preferences.MinHeight &&
                                                         tree.Height <= preferences.MaxHeight &&
                                                         tree.Type == preferences.Type && tree.Specie == preferences.Specie)).ToList();
             }
 
-            return Ok(trees);
+            return Json(trees);
         }
     }
 }
