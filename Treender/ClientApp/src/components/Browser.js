@@ -19,6 +19,10 @@ export class Browser extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch("/GetUserTrees").then(e => console.log(e));
+  }
+
   iconShow = e => {
     let father = document.getElementById("browser");
     let el = document.createElement("img");
