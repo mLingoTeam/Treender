@@ -16,14 +16,15 @@
 
 .treeprof {
   margin-top: 40px;
+  padding: 0 !important;
 }
 .treedata {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 10%;
+  padding: 4% 10% 0;
   text-shadow: 0.1em 0.2em 0.2em black;
   color: #eaeaea;
 }

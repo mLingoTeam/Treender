@@ -22,7 +22,7 @@ export class Browser extends Component {
 
   render() {
     return (
-      <div className="col-12 d-flex flex-column">
+      <div className="col-12 d-flex flex-column" id="browser">
         <Treeprof tree={this.state} />
         <div className="d-flex justify-content-center">
           <TreeButtons image={ximage} />
