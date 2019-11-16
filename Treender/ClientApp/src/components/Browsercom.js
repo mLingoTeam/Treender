@@ -24,7 +24,15 @@ class Browsercom extends Component {
     this.fetchApiToEntries("/GetUserTrees");
   }
   fetchApiToEntries = apiToFetch => {
-    fetch(apiToFetch)
+      fetch(apiToFetch,
+          {
+              method: "GET",
+              headers: {
+                  "Accept": "application/json",
+                  "Content-Type": "application/json",
+                  "name": this.props.username
+              }
+          })
       .then(result => result.json())
       .then(entries => console.log(entries))
       .catch(error => console.log(error));
