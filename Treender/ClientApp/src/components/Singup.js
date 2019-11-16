@@ -18,6 +18,7 @@ class Singup extends Component {
     this.setState({
       username: e.target.value
     });
+    localStorage.setItem("usrname", this.state.username);
   };
 
   sendUsername = () => {
