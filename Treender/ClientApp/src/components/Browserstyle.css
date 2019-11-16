@@ -18,6 +18,13 @@
 .treeprof {
   margin-top: 40px;
   padding: 0 !important;
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .treeprof {
+    margin-left: 37.5%;
+  }
 }
 
 .treedata {
@@ -56,4 +63,20 @@
     opacity: 1;
     transform: translate(-50%, -50%) scale(2.3);
   }
+}
+
+.endoftrees {
+  margin-top: 5vh;
+  height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #444;
+}
+
+.endoftrees img {
+  max-width: 60%;
+  max-height: 60%;
 }

@@ -4,35 +4,89 @@ import ximage from "../img/X.png";
 import hearthimage from "../img/heart.png";
 import "./Browserstyle.css";
 import mock from "../img/christams tree photo.jpg";
+import mock2 from "../img/Icon.png";
+import mock3 from "../img/Trees/tree11.jpg";
 import { connect } from "react-redux";
+import sadface from "../img/sad_face.png";
 
 class Browsercom extends Component {
   constructor() {
     super();
 
-    this.state = {
-      name: "Mieczkowski",
-      height: 1.8,
-      specie: "Sosna",
-      type: "Real",
-      description: "lorem ipsum barttek immilllokwoski",
-      image: mock
-    };
+    this.increment = 0;
+    const initialState = [
+      {
+        name: "Mieczkowski",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock3
+      },
+      {
+        name: "Mieczkowski2",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock2
+      },
+      {
+        name: "Mieczkowski3",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock
+      },
+      {
+        name: "Mieczkowski4",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock2
+      },
+      {
+        name: "Mieczkowski5",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock
+      },
+      {
+        name: "Mieczkowski6",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock2
+      },
+      {
+        name: "Mieczkowski7",
+        height: 1.8,
+        specie: "Sosna",
+        type: "Real",
+        description: "lorem ipsum barttek immilllokwoski",
+        image: mock
+      }
+    ];
+    this.state = { increment: 0, obj: initialState };
   }
 
   componentDidMount() {
     this.fetchApiToEntries("/GetUserTrees");
   }
   fetchApiToEntries = apiToFetch => {
-      fetch(apiToFetch,
-          {
-              method: "GET",
-              headers: {
-                  "Accept": "application/json",
-                  "Content-Type": "application/json",
-                  "name": this.props.username
-              }
-          })
+    fetch(apiToFetch, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        name: this.props.username
+      }
+    })
       .then(result => result.json())
       .then(entries => console.log(entries))
       .catch(error => console.log(error));
@@ -51,38 +105,51 @@ class Browsercom extends Component {
     el.addEventListener("animationend", function() {
       father.removeChild(el);
     });
+
+    setTimeout(() => {
+      this.setState({ ...this.state, increment: (this.increment += 1) });
+    }, 1000);
   };
 
   render() {
-    return (
-      <div className="col-12 d-flex flex-column">
-        <div id="browser">
-          <Treeprof tree={this.state} />
+    if (this.state.increment >= this.state.obj.length) {
+      return (
+        <div className="offset-2 col-8 endoftrees">
+          <h2>End of trees! Buy a VIP profile to search more...</h2>
+          <img src={sadface} className="img-fluid position-relative" />
         </div>
-        <div className="d-flex justify-content-center">
-          <div>
-            <div
-              className="swipeIcon"
-              onClick={() => {
-                this.iconShow(ximage);
-              }}
-            >
-              <img src={ximage} className="img-fluid" />
+      );
+    } else {
+      return (
+        <div className="col-12 d-flex flex-column">
+          <div id="browser">
+            <Treeprof tree={{ ...this.state.obj[this.state.increment] }} />
+          </div>
+          <div className="d-flex justify-content-center">
+            <div>
+              <div
+                className="swipeIcon"
+                onClick={() => {
+                  this.iconShow(ximage);
+                }}
+              >
+                <img src={ximage} className="img-fluid" />
+              </div>
+            </div>
+            <div>
+              <div
+                className="swipeIcon"
+                onClick={() => {
+                  this.iconShow(hearthimage);
+                }}
+              >
+                <img src={hearthimage} className="img-fluid" />
+              </div>
             </div>
           </div>
-          <div>
-            <div
-              className="swipeIcon"
-              onClick={() => {
-                this.iconShow(hearthimage);
-              }}
-            >
-              <img src={hearthimage} className="img-fluid" />
-            </div>
-          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
