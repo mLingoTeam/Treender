@@ -2,6 +2,14 @@
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  font-size: 32px !important;
+  font-family: "Acme", sans-serif;
+  font-weight: 200;
+}
+.navbar {
+  vertical-align: middle;
+  padding: 20px 0;
+  margin: 0 auto !important;
 }
 
 html {
@@ -14,5 +22,5 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
