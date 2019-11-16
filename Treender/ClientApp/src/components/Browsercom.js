@@ -21,18 +21,14 @@ class Browsercom extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.username);
-    fetch("/GetUserTrees", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        name: this.props.username
-      }
-    })
-      .then(e => JSON.stringify(e))
-      .then(e => console.log(e));
+    this.fetchApiToEntries("/GetUserTrees");
   }
+  fetchApiToEntries = apiToFetch => {
+    fetch(apiToFetch)
+      .then(result => result.json())
+      .then(entries => console.log(entries))
+      .catch(error => console.log(error));
+  };
 
   iconShow = e => {
     let father = document.getElementById("browser");
@@ -63,7 +59,7 @@ class Browsercom extends Component {
                 this.iconShow(ximage);
               }}
             >
-              <img src={ximage} />
+              <img src={ximage} className="img-fluid" />
             </div>
           </div>
           <div>
@@ -73,7 +69,7 @@ class Browsercom extends Component {
                 this.iconShow(hearthimage);
               }}
             >
-              <img src={hearthimage} />
+              <img src={hearthimage} className="img-fluid" />
             </div>
           </div>
         </div>
