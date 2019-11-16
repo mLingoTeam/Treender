@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 import whitetree from "../img/Icon white.png";
 
 class Singup extends Component {
@@ -47,13 +48,16 @@ class Singup extends Component {
               class="offset-3 col-6"
             />
           </label>
-          <button
-            type="button"
-            className="btn btn-tinder"
-            onClick={this.sendUsername}
-          >
-            Search your tree!
-          </button>
+          <Link to="/browse">
+            <button
+              type="button"
+              className="btn btn-tinder"
+              onClick={this.sendUsername}
+            >
+              {" "}
+              Create an account!
+            </button>
+          </Link>
         </form>
       </div>
     );
