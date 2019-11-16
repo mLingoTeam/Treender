@@ -1,7 +1,6 @@
 import React from "react";
 
 function Treeprof(props) {
-  console.log(props);
   return (
     <div>
       <div className="offset-1 col-10 offset-md-4 col-md-4 offset-xl-4 col-xl-3 treeprof">

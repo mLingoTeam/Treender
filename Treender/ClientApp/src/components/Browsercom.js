@@ -88,7 +88,15 @@ class Browsercom extends Component {
       }
     })
       .then(result => result.json())
-      .then(entries => console.log(entries))
+      .then(entries => JSON.parse(entries))
+      .then(entries =>
+        this.setState({
+          ...this.state,
+          obj: entries,
+          increment: this.state.increment
+        })
+      )
+      .then(entries => console.log(this.state))
       .catch(error => console.log(error));
   };
 
@@ -112,7 +120,7 @@ class Browsercom extends Component {
   };
 
   render() {
-    if (this.state.increment >= this.state.obj.length) {
+    /*if (this.state.increment >= this.state.obj.length) {
       return (
         <div className="offset-2 col-8 endoftrees">
           <h2>End of trees! Buy a VIP profile to search more...</h2>
@@ -120,38 +128,39 @@ class Browsercom extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="col-12 d-flex flex-column">
-          <div id="browser">
-            <Treeprof tree={{ ...this.state.obj[this.state.increment] }} />
-          </div>
-          <div className="d-flex justify-content-center">
-            <div>
-              <div
-                className="swipeIcon"
-                onClick={() => {
-                  this.iconShow(ximage);
-                }}
-              >
-                <img src={ximage} className="img-fluid" />
-              </div>
+         */
+    return (
+      <div className="col-12 d-flex flex-column">
+        <div id="browser">
+          <Treeprof tree={{ ...this.state.obj[this.state.increment] }} />
+        </div>
+        <div className="d-flex justify-content-center">
+          <div>
+            <div
+              className="swipeIcon"
+              onClick={() => {
+                this.iconShow(ximage);
+              }}
+            >
+              <img src={ximage} className="img-fluid" />
             </div>
-            <div>
-              <div
-                className="swipeIcon"
-                onClick={() => {
-                  this.iconShow(hearthimage);
-                }}
-              >
-                <img src={hearthimage} className="img-fluid" />
-              </div>
+          </div>
+          <div>
+            <div
+              className="swipeIcon"
+              onClick={() => {
+                this.iconShow(hearthimage);
+              }}
+            >
+              <img src={hearthimage} className="img-fluid" />
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
+//}
 
 const mapStateToProps = state => {
   return {
