@@ -30,6 +30,8 @@ namespace Treender.Controllers
             var username = Request.Headers["name"];
             var preferences = (from user in _dbContext.Users where user.Username.Equals(username) select user.PreferencesFk).FirstOrDefault();
 
+            if (preferences == null) return NoContent();
+
             var trees = (from tree in _dbContext.Trees
                 where (tree.Height <= preferences.MaxHeight &&
                        tree.Height >= preferences.MinHeight &&

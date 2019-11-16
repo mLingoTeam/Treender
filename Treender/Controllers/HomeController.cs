@@ -22,23 +22,25 @@ namespace Treender.Controllers
 
         [HttpPost]
         [Route("/Login")]
-        public async Task LoginAsync()
+        public async Task<IActionResult> LoginAsync()
         {
             using (var reader = new StreamReader(Request.Body))
             {
                 var body = await reader.ReadToEndAsync();
 
+                var rng = new Random();
+
                 if(_dbContext.Users.Any())
                     if (_dbContext.Users.FirstOrDefault(u => u.Username == body) != null)
-                        return;
+                        return Ok();
 
                 //create default user prefernces
                 Preference pref = new Preference
                 {
                     Uid = new Guid(),
-                    MaxHeight = 200,
-                    MinHeight = 100,
-                    Specie = 1,
+                    MaxHeight = rng.Next(150, 200),
+                    MinHeight = rng.Next(60, 120),
+                    Specie = rng.Next(1, 4),
                     Type = 1
                 };
 
@@ -52,6 +54,8 @@ namespace Treender.Controllers
                     Preferences = pref.Uid
                 });
                 _dbContext.SaveChanges();
+
+                return Ok();
             }
         }
     }
