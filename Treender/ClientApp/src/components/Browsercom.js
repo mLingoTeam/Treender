@@ -76,24 +76,27 @@ class Browsercom extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
       this.fetchApiToEntries("/GetUserTrees");
-    }, 5000);
   }
   fetchApiToEntries = apiToFetch => {
-    console.log(localStorage.getItem("usrname"));
-    fetch(apiToFetch, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        name: localStorage.getItem("usrname")
-      }
-    })
-      .then(result => console.log(result))
-      .then(result => JSON.parse(result))
-      .then(result => console.log(result))
-      .catch(error => console.log(error));
+      fetch(apiToFetch, {
+              method: "GET",
+              headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                  name: this.props.username
+              }
+          })
+          .then(result => result.json())
+          .then(entries => JSON.parse(entries))
+          .then(entries =>
+              this.setState({
+                  ...this.state,
+                  obj: entries,
+                  increment: this.state.increment
+              })
+          )
+          .catch(error => console.log(error));
   };
 
   iconShow = e => {

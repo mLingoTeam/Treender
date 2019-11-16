@@ -27,19 +27,12 @@ namespace Treender.Controllers
         [Route("/GetUserTrees")]
         public IActionResult GetTreeSet()
         {
-            var username = Request.Headers["name"];
-            var preferences = (from user in _dbContext.Users where user.Username.Equals(username) select user.PreferencesFk).FirstOrDefault();
-
-            if (preferences == null) return NoContent();
-
-            var trees = (from tree in _dbContext.Trees
-                where (tree.Height <= preferences.MaxHeight &&
-                       tree.Height >= preferences.MinHeight &&
-                       tree.Type == preferences.Type && tree.Specie == preferences.Specie)
-                select tree).ToList();
-
+            var rng = new Random();
+            var trees = new List<Tree>();
+            var tct = rng.Next(20, 30);
+            var treesdb = _dbContext.Trees.ToList();
+            for (int i = 0; i < tct; i++) trees.Add(treesdb[rng.Next(treesdb.Count)]);
             var jsonTrees = JsonConvert.SerializeObject(trees);
-
             return Ok(jsonTrees);
         }
 
