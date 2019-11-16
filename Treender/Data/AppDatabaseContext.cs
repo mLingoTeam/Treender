@@ -20,6 +20,8 @@ namespace Treender.Data
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Preference> Preferences { get; set; }
+
         #endregion
         /// <summary>
         /// Default constructor that configures database context

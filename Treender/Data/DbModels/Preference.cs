@@ -13,14 +13,14 @@ namespace Treender.Data.DbModels
 
         public int MaxHeight { get; set; }
 
-        public int TypeFk { get; set; }
+        public int Type { get; set; }
 
-        public int SpecieFk { get; set; }
+        public int Specie { get; set; }
 
-        [ForeignKey("TypeFk")]
-        public TreeType TreeType { get; set; }
+        [ForeignKey("Type")]
+        public TreeType TypeFk { get; set; }
         
-        [ForeignKey("SpecieFk")]
-        public TreeSpecie TreeSpecie { get; set; }
+        [ForeignKey("Specie")]
+        public TreeSpecie SpecieFk { get; set; }
     }
 }

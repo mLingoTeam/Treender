@@ -12,9 +12,9 @@ namespace Treender.Data.DbModels
         [Key]
         public Guid Uid { get; set; }
 
-        public Guid PreferencesFk { get; set; }
+        public Guid Preferences { get; set; }
 
-        [ForeignKey("PreferencesFk")]
-        public Preference Preferences { get; set; }
+        [ForeignKey("Preferences")]
+        public Preference PreferencesFk { get; set; }
     }
 }
