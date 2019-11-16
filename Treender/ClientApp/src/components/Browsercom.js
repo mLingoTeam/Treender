@@ -96,8 +96,6 @@ class Browsercom extends Component {
           increment: this.state.increment
         })
       )
-      .then(console.log(typeof this.state.obj[1].Image))
-      .then(console.log(typeof this.state.obj[1].Image))
       .catch(error => console.log(error));
   };
 
