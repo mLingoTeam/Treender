@@ -41,11 +41,18 @@ namespace Treender.Controllers
             return StatusCode(200, jsonTrees);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("/Like")]
         public async Task<IActionResult> Like()
         {
+            var username = Request.Headers["name"];
+            string body;
+            using (var reader = new StreamReader(Request.Body))
+                body = await reader.ReadToEndAsync();
 
+            if (body == null) return NoContent();
+
+            
 
             return Ok();
         }
