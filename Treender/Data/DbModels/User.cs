@@ -16,5 +16,7 @@ namespace Treender.Data.DbModels
 
         [ForeignKey("Preferences")]
         public Preference PreferencesFk { get; set; }
+
+        public Guid[] Likes { get; set; }
     }
 }

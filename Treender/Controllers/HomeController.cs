@@ -31,8 +31,8 @@ namespace Treender.Controllers
                 Preference pref = new Preference
                 {
                     Uid = new Guid(),
-                    MaxHeight = 0,
-                    MinHeight = 0,
+                    MaxHeight = 200,
+                    MinHeight = 100,
                     Specie = 1,
                     Type = 1
                 };
