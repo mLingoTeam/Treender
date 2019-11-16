@@ -19,6 +19,7 @@
   margin-top: 40px;
   padding: 0 !important;
   overflow: hidden;
+  border-radius: 25px;
 }
 
 @media (min-width: 1200px) {
@@ -37,6 +38,7 @@
   text-shadow: 0.1em 0.2em 0.2em black;
   color: #eaeaea;
   font-weight: 600;
+  border-radius: 0 0 25px 25px;
 }
 
 .iconShow {
