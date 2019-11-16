@@ -16,14 +16,42 @@
 
 .treeprof {
   margin-top: 40px;
+  padding: 0 !important;
 }
 .treedata {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 10%;
+  padding: 4% 10% 0;
   text-shadow: 0.1em 0.2em 0.2em black;
   color: #eaeaea;
+}
+
+.iconShow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+
+  25% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(2.1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(2.2);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2.3);
+  }
 }
