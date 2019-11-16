@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Treeprof from "./Treeprof";
-import TreeButtons from "./TreeButtons";
 import ximage from "../img/X.png";
 import hearthimage from "../img/heart.png";
 import "./Browser.css";
@@ -20,13 +19,48 @@ export class Browser extends Component {
     };
   }
 
+  iconShow = e => {
+    let father = document.getElementById("browser");
+    let el = document.createElement("img");
+    el.src = e;
+    el.classList.add("iconShow");
+
+    el.style.animation = "show 1s ease-in-out";
+
+    father.appendChild(el);
+
+    el.addEventListener("animationend", function() {
+      father.removeChild(el);
+    });
+  };
+
   render() {
     return (
-      <div className="col-12 d-flex flex-column" id="browser">
-        <Treeprof tree={this.state} />
+      <div className="col-12 d-flex flex-column">
+        <div id="browser">
+          <Treeprof tree={this.state} />
+        </div>
         <div className="d-flex justify-content-center">
-          <TreeButtons image={ximage} />
-          <TreeButtons image={hearthimage} />
+          <div>
+            <div
+              className="swipeIcon"
+              onClick={() => {
+                this.iconShow(ximage);
+              }}
+            >
+              <img src={ximage} />
+            </div>
+          </div>
+          <div>
+            <div
+              className="swipeIcon"
+              onClick={() => {
+                this.iconShow(hearthimage);
+              }}
+            >
+              <img src={hearthimage} />
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -28,3 +28,27 @@
   text-shadow: 0.1em 0.2em 0.2em black;
   color: #eaeaea;
 }
+
+.iconShow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
