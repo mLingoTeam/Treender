@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,10 @@ namespace Treender.Controllers
             using (var reader = new StreamReader(Request.Body))
             {
                 var body = await reader.ReadToEndAsync();
+
+                if(_dbContext.Users.Any())
+                    if (_dbContext.Users.FirstOrDefault(u => u.Username == body) != null)
+                        return;
 
                 //create default user prefernces
                 Preference pref = new Preference

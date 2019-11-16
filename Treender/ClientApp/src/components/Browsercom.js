@@ -22,11 +22,11 @@ class Browsercom extends Component {
 
   componentDidMount() {
     console.log(this.props.username);
-    fetch("/GetUserTress", {
+    fetch("/GetUserTrees", {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "text/html",
+        "Content-Type": "application/json",
         name: this.props.username
       }
     })

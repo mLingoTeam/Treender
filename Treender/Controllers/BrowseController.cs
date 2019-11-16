@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Extensions.Logging;
 using Treender.Data;
 using Treender.Data.DbModels;
@@ -25,17 +26,10 @@ namespace Treender.Controllers
         public IActionResult GetTreeSet()
         {
             var username = Request.Headers["name"];
-            var preferences = _dbContext.Users.FirstOrDefault(u => u.Username == username)?.PreferencesFk;
-            if (preferences == null) return Json("{fail: no_such_user}");
+            var preferences = from user in _dbContext.Users where user.Username.Equals(username) select user.PreferencesFk;
+            
 
-            var trees = _dbContext.Trees.Where(tree => (tree.Height >= preferences.MinHeight &&
-                                                         tree.Height <= preferences.MaxHeight &&
-                                                         tree.Type == preferences.Type &&
-                                                         tree.Specie == preferences.Specie)).ToList();
-
-
-
-            return Ok(Json(trees));
+            return Ok(Json(""));
         }
 
         [HttpPost]
