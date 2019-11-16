@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import whitetree from "../img/Icon white.png";
 
 class Singup extends Component {
@@ -13,6 +14,7 @@ class Singup extends Component {
   }
 
   newUsername = e => {
+    console.log(this.props);
     this.setState({
       username: e.target.value
     });
@@ -27,6 +29,8 @@ class Singup extends Component {
       },
       body: this.state.username
     });
+
+    this.props.changeName(this.state.username);
   };
 
   render() {
@@ -48,7 +52,7 @@ class Singup extends Component {
               class="offset-3 col-6"
             />
           </label>
-          <Link to="/browse">
+          <Link to="/browse" username={this.state.username}>
             <button
               type="button"
               className="btn btn-tinder"
@@ -64,4 +68,18 @@ class Singup extends Component {
   }
 }
 
-export default Singup;
+const mapStateToProps = props => {
+  return {
+    reducero: props.reducero
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeName: username => {
+      dispatch({ type: "CHANGE_NAME", username: username });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Singup);

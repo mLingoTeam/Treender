@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Treeprof from "./Treeprof";
 import ximage from "../img/X.png";
 import hearthimage from "../img/heart.png";
-import "./Browser.css";
+import "./Browserstyle.css";
 import mock from "../img/christams tree photo.jpg";
+import { connect } from "react-redux";
 
-export class Browser extends Component {
+class Browsercom extends Component {
   constructor() {
     super();
 
@@ -20,7 +21,17 @@ export class Browser extends Component {
   }
 
   componentDidMount() {
-    fetch("/GetUserTrees").then(e => console.log(e));
+    console.log(this.props.username);
+    fetch("/GetUserTress", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "text/html",
+        name: this.props.username
+      }
+    })
+      .then(e => JSON.stringify(e))
+      .then(e => console.log(e));
   }
 
   iconShow = e => {
@@ -70,3 +81,11 @@ export class Browser extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    username: state.username
+  };
+};
+
+export default connect(mapStateToProps)(Browsercom);
