@@ -41,7 +41,7 @@ namespace Treender.Controllers
                     MaxHeight = rng.Next(150, 200),
                     MinHeight = rng.Next(60, 120),
                     Specie = rng.Next(1, 4),
-                    Type = 1
+                    Type = rng.Next(1, 3)
                 };
 
                 _dbContext.Preferences.Add(pref);
