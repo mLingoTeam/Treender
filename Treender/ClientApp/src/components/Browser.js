@@ -20,7 +20,19 @@ export class Browser extends Component {
   }
 
   componentDidMount() {
-    fetch("/GetUserTrees").then(e => console.log(e));
+    console.log(this.props);
+    const request = new Request("/GetUserTress");
+    console.log(request.method);
+    fetch(request, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "text/html"
+      },
+      body: this.state.username
+    })
+      .then(e => JSON.stringify(e))
+      .then(e => console.log(e));
   }
 
   iconShow = e => {

@@ -48,7 +48,7 @@ class Singup extends Component {
               class="offset-3 col-6"
             />
           </label>
-          <Link to="/browse">
+          <Link to="/browse" username={this.state.username}>
             <button
               type="button"
               className="btn btn-tinder"
