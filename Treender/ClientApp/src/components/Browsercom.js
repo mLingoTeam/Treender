@@ -16,12 +16,12 @@ class Browsercom extends Component {
     this.increment = 0;
     const initialState = [
       {
-        name: "Mieczkowski",
-        height: 1.8,
-        specie: "Sosna",
-        type: "Real",
-        description: "lorem ipsum barttek immilllokwoski",
-        image: mock3
+        Name: "Mieczkowski",
+        Height: 1.8,
+        Specie: "Sosna",
+        Type: "Real",
+        Description: "lorem ipsum barttek immilllokwoski",
+        Image: mock3
       },
       {
         name: "Mieczkowski2",
