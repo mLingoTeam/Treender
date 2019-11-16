@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Signup from "./Singup";
 import "./NavMenu.css";
 
 class Logo extends Component {
@@ -15,7 +14,6 @@ class Logo extends Component {
             </span>
           </span>
         </span>
-        <Signup />
       </div>
     );
   }

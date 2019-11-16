@@ -1,0 +1,29 @@
+.swipeIcon {
+  background: white;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+.swipeIcon:hover {
+  background: #ddd;
+  cursor: pointer;
+}
+
+.treeprof {
+  margin-top: 40px;
+}
+.treedata {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 10%;
+  text-shadow: 0.1em 0.2em 0.2em black;
+  color: #eaeaea;
+}
