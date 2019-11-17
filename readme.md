@@ -1,4 +1,4 @@
-# Treender
+# Treender - hackaton app
 Bez choinki świąt nie będzie. Znajdź tą jedyną na treenderze!
 
 # Idea 
